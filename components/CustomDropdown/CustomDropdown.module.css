@@ -1,0 +1,111 @@
+.dropdownContainer {
+  position: relative;
+  min-width: 180px;
+  font-family: var(--font-sans, 'Inter', sans-serif);
+  user-select: none;
+}
+
+.dropdownContainer.active {
+  z-index: 100;
+}
+
+.dropdownTrigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 25px;
+  background-color: var(--color-white, #ffffff);
+  border: 1px solid rgba(183, 110, 121, 0.3);
+  /* Rose gold with opacity */
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--color-primary, #B76E79);
+  font-weight: 600;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.dropdownTrigger:hover,
+.dropdownTrigger.open {
+  border-color: var(--color-primary, #B76E79);
+  box-shadow: 0 8px 20px rgba(183, 110, 121, 0.15);
+  transform: translateY(-2px);
+}
+
+.arrow {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  transition: transform 0.3s ease;
+}
+
+.dropdownTrigger.open .arrow {
+  transform: rotate(180deg);
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  width: 100%;
+  background-color: var(--color-white, #ffffff);
+  border: 1px solid rgba(183, 110, 121, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease-out forwards;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+/* Custom scrollbar for the menu */
+.dropdownMenu::-webkit-scrollbar {
+  width: 6px;
+}
+
+.dropdownMenu::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.dropdownMenu::-webkit-scrollbar-thumb {
+  background-color: rgba(183, 110, 121, 0.3);
+  border-radius: 10px;
+}
+
+.dropdownItem {
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  color: var(--color-text, #333);
+  font-size: 0.9rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.dropdownItem:last-child {
+  border-bottom: none;
+}
+
+.dropdownItem:hover {
+  background-color: rgba(183, 110, 121, 0.08);
+  color: var(--color-primary, #B76E79);
+}
+
+.dropdownItem.selected {
+  background-color: rgba(183, 110, 121, 0.15);
+  color: var(--color-primary, #B76E79);
+  font-weight: 600;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

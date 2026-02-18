@@ -1,0 +1,13 @@
+/*
+ * Corrective styles for ClubSection on tablet devices.
+ * The default padding on .chapter-content appears too large on tablets.
+ * These overrides reduce the vertical padding for a more balanced look.
+ */
+@media (max-width: 768px) {
+
+  /* Tablet breakpoint */
+  .clubChapterContent {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+}

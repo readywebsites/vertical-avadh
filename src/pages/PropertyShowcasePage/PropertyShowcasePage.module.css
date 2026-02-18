@@ -1,0 +1,702 @@
+.showcaseContainer {
+  position: relative;
+  z-index: 10;
+  margin-top: -80px;
+  /* Overlap hero section */
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  background-color: #fff;
+  padding: 4rem 5%;
+  width: 100%;
+  max-width: 100%;
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.05);
+  color: #333;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Hero Section Styles */
+.heroSection {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 0;
+  background-color: #000;
+}
+
+.heroSlide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out, transform 6s ease;
+  z-index: 0;
+  transform: scale(1);
+}
+
+.heroSlideActive {
+  opacity: 1;
+  transform: scale(1.05);
+  /* Subtle zoom effect */
+}
+
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
+  z-index: 1;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  padding: 0 20px;
+  max-width: 1000px;
+  animation: fadeInUp 1s ease-out;
+}
+
+.heroTitle {
+  font-size: 4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.heroLocation {
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.navButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+}
+
+.navButton:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.prevButton {
+  left: 30px;
+}
+
+.nextButton {
+  right: 30px;
+}
+
+.indicators {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  z-index: 3;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.indicatorActive {
+  background-color: #fff;
+  transform: scale(1.2);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Main Content Grid Layout */
+.mainContent {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  /* 25% 50% 25% */
+  gap: 3rem;
+  margin-bottom: 4rem;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Column 1: Info Column */
+.infoColumn {
+  padding-right: 1.5rem;
+  border-right: 1px solid #eee;
+}
+
+.columnTitle {
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+  border-bottom: 2px solid #eab308;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+}
+
+.highlightsList {
+  list-style: none;
+  padding: 0;
+}
+
+.highlightsList li {
+  margin-bottom: 1.2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-size: 0.9rem;
+  color: #777;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.2rem;
+}
+
+.highlightsList li strong {
+  font-size: 1.1rem;
+  color: #000;
+}
+
+/* Column 2: Description Column */
+.descriptionColumn {
+  padding: 0 1rem;
+}
+
+.sectionTitle {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #222;
+}
+
+.descriptionText {
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 2rem;
+  font-size: 1.05rem;
+}
+
+.subTitle {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #444;
+}
+
+.galleryGrid img:hover {
+  transform: scale(1.05);
+}
+
+/* Column 3: Form Column */
+.formColumn {
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 15px;
+  height: fit-content;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid #eee;
+}
+
+.videoWrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  /* 16:9 Aspect Ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.videoWrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.formTitle {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.formSubtitle {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+.brochureForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.inputGroup input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.inputGroup input:focus {
+  border-color: #eab308;
+  outline: none;
+}
+
+.submitButton {
+  background-color: #eab308;
+  color: #000;
+  border: none;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 0.5rem;
+}
+
+.brochureButton {
+  display: inline-block;
+  background-color: #d9534f;
+  /* Danger color for PDF */
+  color: white;
+  padding: 12px 25px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.brochureButton:hover {
+  background-color: #d97706;
+}
+
+.brochureButton i {
+  margin-right: 8px;
+}
+
+.mapWrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  /* Match video aspect ratio (16:9) */
+  height: 0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.mapWrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Amenities Accordion Section */
+.amenitiesSection {
+  margin: 4rem auto;
+  max-width: 1000px;
+  padding: 0 1rem;
+}
+
+.accordionContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.accordionItem {
+  width: 100%;
+}
+
+.accordionHeader {
+  width: 100%;
+  background-color: #f8f9fa;
+  border: 1px solid #eee;
+  padding: 1.2rem 2rem;
+  border-radius: 9999px;
+  /* Pill shape */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  transition: all 0.3s ease;
+  outline: none;
+  position: sticky;
+  top: 1rem;
+  z-index: 5;
+}
+
+.accordionHeader:hover {
+  background-color: #eab308;
+  color: #000;
+  border-color: #eab308;
+}
+
+.activeHeader {
+  background-color: #eab308;
+  color: #000;
+  border-color: #eab308;
+  margin-bottom: 0.5rem;
+}
+
+.accordionContent {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, opacity 0.3s ease;
+  opacity: 0;
+  padding: 0 2rem;
+}
+
+.showContent {
+  max-height: 500px;
+  opacity: 1;
+  padding-bottom: 1rem;
+}
+
+.accordionContent ul {
+  list-style-type: disc;
+  padding-left: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 10px;
+  color: #555;
+}
+
+/* === NEW GALLERY STYLES === */
+.gallerySection {
+  margin: 4rem auto;
+  max-width: 1400px;
+}
+
+.galleryHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.viewAllBtn {
+  background: transparent;
+  border: 1px solid #333;
+  padding: 8px 16px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.viewAllBtn:hover {
+  background: #333;
+  color: #fff;
+}
+
+.bentoGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 10px;
+  height: 500px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.mainPhoto {
+  height: 100%;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.mainPhoto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.subPhotoGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 10px;
+  height: 100%;
+}
+
+.subPhotoItem {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.subPhotoItem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.mainPhoto:hover img,
+.subPhotoItem:hover img {
+  transform: scale(1.05);
+}
+
+.moreOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  backdrop-filter: blur(2px);
+}
+
+/* Full Screen Gallery Modal */
+.fullScreenGallery {
+  position: fixed;
+  inset: 0;
+  background: #fff;
+  z-index: 2000;
+  overflow-y: auto;
+  padding: 0;
+  animation: fadeInUp 0.3s ease-out;
+}
+
+.galleryNav {
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 15px 30px;
+  z-index: 10;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  backdrop-filter: blur(10px);
+}
+
+.closeGalleryBtn {
+  background: transparent;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  color: #333;
+}
+
+.closeGalleryBtn:hover {
+  color: #eab308;
+}
+
+.allPhotosGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 20px;
+  max-width: 1600px;
+  margin: 20px auto;
+  padding: 0 20px 40px;
+}
+
+.fullPhotoItem img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Media Section (Below Main Content) */
+.mediaSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-top: 4rem;
+  padding-top: 4rem;
+  border-top: 1px solid #eee;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mediaSection h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Contact Section */
+.contactSection {
+  text-align: center;
+  padding: 2rem;
+  margin-top: 2rem;
+  background-color: #333;
+  color: white;
+  border-radius: 8px;
+}
+
+.contactSection h2 {
+  font-size: 2rem;
+}
+
+.contactButton {
+  background-color: #f0ad4e;
+  color: #333;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.contactButton:hover {
+  background-color: #ec971f;
+}
+
+.rotateIcon {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .bentoGrid {
+    height: 400px;
+  }
+
+  .allPhotosGrid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+
+  .mainContent {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .infoColumn {
+    border-right: none;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 2rem;
+  }
+
+  .mediaSection {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .bentoGrid {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .subPhotoGrid {
+    display: none;
+    /* Hide sub photos on mobile, just show main + button */
+  }
+
+  .showcaseContainer {
+    padding: 1rem;
+    margin-top: -30px;
+    border-radius: 30px 30px 0 0;
+  }
+
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+
+  .heroLocation {
+    font-size: 1.2rem;
+  }
+
+  .navButton {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+}
+
+.loading,
+.error {
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 5rem 1rem;
+}

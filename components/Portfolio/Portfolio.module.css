@@ -1,0 +1,136 @@
+.portfolioContainer {
+  width: 100%;
+  max-width: 1400px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+.portfolioFilters {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.filterButtons {
+  display: flex;
+  gap: 0.5rem;
+  background-color: #f3f4f6;
+  padding: 0.5rem;
+  border-radius: 50px;
+}
+
+.filterBtn {
+  padding: 0.5rem 1.5rem;
+  border: none;
+  background-color: transparent;
+  color: #555;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filterBtn.active {
+  background-color: var(--color-primary, #b76e79);
+  color: white;
+  box-shadow: 0 2px 10px rgba(183, 110, 121, 0.3);
+}
+
+.searchWrapper {
+  position: relative;
+}
+
+.searchInput {
+  padding: 0.75rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 50px;
+  width: 250px;
+  transition: all 0.3s ease;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: var(--color-primary, #b76e79);
+  box-shadow: 0 0 0 3px rgba(183, 110, 121, 0.2);
+}
+
+.portfolioGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.portfolioCard {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  border: 1px solid #eee;
+}
+
+.pCardImage {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.pCardContent {
+  padding: 1.25rem;
+}
+
+.pCardTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem;
+  color: #333;
+}
+
+.pCardLoc {
+  font-size: 0.9rem;
+  color: #777;
+  margin: 0;
+}
+
+.noResults {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 4rem 0;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* --- Skeleton Styles --- */
+.skeleton .pCardImage,
+.skeleton .skeletonText {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+.skeleton .pCardTitle {
+  height: 1.2rem;
+  width: 80%;
+  margin-bottom: 0.75rem;
+  border-radius: 4px;
+}
+
+.skeleton .pCardLoc {
+  height: 0.9rem;
+  width: 50%;
+  border-radius: 4px;
+}
+
+@keyframes pulse {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}

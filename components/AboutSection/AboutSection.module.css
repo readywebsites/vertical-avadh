@@ -1,0 +1,188 @@
+/* AboutSection.module.css */
+
+.aboutSection {
+  position: relative;
+  height: 100vh;
+  /* Ensure it takes full viewport height for pinning */
+  overflow: hidden;
+  /* Hide overflow during animation */
+  background-color: var(--color-light);
+  /* Fallback background */
+  border-top-left-radius: var(--section-radius);
+  border-top-right-radius: var(--section-radius);
+  box-shadow: var(--section-shadow);
+  z-index: 2;
+  /* Ensure it's above other content */
+  contain: paint;
+}
+
+.aboutMaskContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  /* Important for containing the mask and image */
+}
+
+.aboutBg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  /* Behind the mask */
+  will-change: transform;
+}
+
+.aboutMaskLayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-light);
+  /* Background color for the mask area */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  /* Above the image */
+  transform: scale(1);
+  /* Initial scale for animation */
+  transform-origin: center center;
+  opacity: 1;
+  /* Initial opacity for animation */
+}
+
+.aboutSvgMask {
+  width: 80%;
+  /* Adjust size as needed */
+  height: 80%;
+  max-width: 800px;
+  max-height: 800px;
+}
+
+.aboutContentReveal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  /* Initially hidden, controlled by GSAP */
+  z-index: 3;
+  /* Above the mask */
+  pointer-events: none;
+  /* Allow clicks to pass through when hidden */
+  /* A slightly lighter gradient to make the scene brighter, enhancing the text's pop */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.500), rgba(0, 0, 0, 0.75));
+  /* A softer, more spread-out shadow lifts the text without making it feel dark */
+  text-shadow: 0 4px 25px rgba(0, 0, 0, 0.9);
+}
+
+.aboutValuesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+  text-align: left;
+}
+
+/* New class for the main text content container, making it responsive */
+.aboutTextContainer {
+  width: 100%;
+  padding: 0 var(--spacing-lg);
+  /* 4rem padding on sides for desktop */
+}
+
+.valueItem {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgb(255, 255, 255);
+}
+
+.valueItem h4 {
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.valueItem p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Text content styling for the reveal section */
+.textContentWhite {
+  color: white;
+  /* Default for all text within this container */
+}
+
+/* Ensure h2 is white, removing previous inline style */
+.textContentWhite :global(.chapter-title) {
+  color: white;
+}
+
+/* Ensure the main paragraph is solid white, removing previous inline style */
+.textContentWhite :global(.section-paragraph) {
+  color: white;
+}
+
+/* Ensure highlight color is visible on white background */
+.textContentWhite :global(.highlight) {
+  color: var(--color-primary);
+  /* Assuming --color-primary is a suitable highlight color */
+}
+
+/* Responsive adjustments for content padding and layout */
+@media (max-width: 768px) {
+  .aboutTextContainer {
+    padding: 0 var(--spacing-md);
+    /* 2rem padding on sides for tablet */
+  }
+}
+
+/* Optional: Adjust font size for the AVADH text on smaller screens if needed */
+@media (max-width: 480px) {
+  .aboutTextContainer {
+    padding: 0 var(--spacing-sm);
+    /* 1rem padding on sides for mobile */
+  }
+
+  /* The text element inside the mask layer's SVG */
+  .aboutMaskLayer text {
+    font-size: 100px;
+    /* Smaller font size for very small screens */
+  }
+
+  .aboutValuesGrid {
+    gap: 1.5rem;
+  }
+}
+
+/* Optional: Adjust font size for tablets in portrait if needed */
+@media (min-width: 481px) and (max-width: 768px) and (orientation: portrait) {
+  .aboutMaskLayer text {
+    font-size: 120px;
+    /* Slightly larger for tablets */
+  }
+}
+
+/* Global classes used in AboutSection.jsx, assuming they are defined globally or in a shared CSS */
+/*
+.chapter-subtitle { ... }
+.chapter-title { ... }
+.highlight { ... }
+.section-paragraph { ... }
+.ctaButton { ... }
+.content-wrapper.centered { ... }
+*/
