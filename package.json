@@ -1,11 +1,14 @@
 {
   "name": "frontend",
+  "homepage": "https://readywebsites.github.io/vertical-avadh/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "deploy": "npm run build && gh-pages -d dist",
+    "deploy:clean": "rm -rf node_modules/.cache/gh-pages && npm run deploy",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -24,6 +27,7 @@
     "eslint": "^9.39.1",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24",
+    "gh-pages": "^6.3.0",
     "globals": "^16.5.0",
     "vite": "npm:rolldown-vite@7.2.5"
   },
